@@ -42,6 +42,9 @@
             <div class="navbar-nav">
                 <a class="nav-item nav-link" href="{{ url('/') }}">Home</a>
                 <a class="nav-item nav-link active" href="{{ url('/routes') }}">Route</a>
+            @auth
+                    <a class="nav-item nav-link" href="{{ url('/admin') }}">Admin</a>
+                @endauth
             </div>
             <div class="navbar-nav ml-auto">
                 @auth
