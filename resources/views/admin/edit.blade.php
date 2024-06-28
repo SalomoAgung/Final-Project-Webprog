@@ -11,6 +11,20 @@
             max-width: 600px;
             margin: 50px auto;
         }
+        body {
+            background-color: #081863;
+            color: white;
+        }
+        .bg-white {
+            background-color: #ffffff !important;
+            color: #000000 !important;
+        }
+        .navbar {
+            background-color: #0e1350 !important;
+        }
+        .navbar-brand, .nav-link, .nav-item {
+            color: white !important;
+        }
     </style>
 </head>
 <body>
@@ -25,9 +39,11 @@
                 <a class="nav-item nav-link active" href="{{ url('/') }}">Home</a>
                 <a class="nav-item nav-link" href="{{ url('/routes') }}">Route</a>
                 @auth
-                    @if (Auth::user()->is_admin)
-                        <a class="nav-item nav-link" href="{{ url('/admin') }}">Admin</a>
-                    @endif
+                    <a class="nav-item nav-link" href="{{ url('/admin') }}">Admin</a>
+                @endauth
+            </div>
+            <div class="navbar-nav ml-auto">
+                @auth
                     <a class="nav-item nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
