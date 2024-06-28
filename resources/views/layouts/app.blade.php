@@ -3,13 +3,29 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ config('app.name', 'AppVigate') }}</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #081863;
+            color: white;
+        }
+        .bg-white {
+            background-color: #ffffff !important;
+            color: #000000 !important;
+        }
+        .navbar {
+            background-color: #0e1350 !important;
+        }
+        .navbar-brand, .nav-link, .nav-item {
+            color: white !important;
+        }
+    </style>
 </head>
-<body class="bg-light">
+<body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="{{ url('/') }}">AppVigate</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -26,17 +42,18 @@
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
-                @else
-                    <a class="nav-item nav-link" href="{{ route('login') }}">Login</a>
                 @endauth
+            </div>
+            <div class="navbar-nav ml-auto">
+                @guest
+                    <a class="nav-item nav-link" href="{{ route('login') }}">Login</a>
+                @endguest
             </div>
         </div>
     </nav>
 
     <main class="py-4">
-        <div class="container">
-            @yield('content')
-        </div>
+        @yield('content')
     </main>
 
     <!-- Bootstrap JS and dependencies -->

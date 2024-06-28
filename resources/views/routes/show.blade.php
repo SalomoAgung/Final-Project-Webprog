@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <style>
         .tariff-block {
-            background-color: #f8f9fa;
+            background-color: #d3d3d3;
             padding: 10px;
             border-radius: 5px;
             color: #000000;
+            font-size: 1.25rem;
         }
         #map {
             height: 500px;
@@ -26,10 +27,13 @@
             padding: 20px;
             border-radius: 8px;
         }
+        .navbar {
+            background-color: #0e1350;
+        }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="{{ url('/') }}">AppVigate</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
